@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Logs de Instalação</h1>
+</div>
+<pre id="log-content" class="p-3 bg-body-tertiary rounded">Carregando logs...</pre>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const logElement = document.getElementById('log-content');
+
+    async function fetchLogs() {
+        try {
+            const response = await fetch('/api/logs');
+            const data = await response.json();
+            logElement.textContent = data.join(''); // Junta as linhas sem adicionar separador
+        } catch (error) {
+            logElement.textContent = 'Erro ao carregar os logs.';
+            console.error(error);
+        }
+    }
+
+    // Atualiza a cada 5 segundos
+    setInterval(fetchLogs, 5000);
+    // Carga inicial
+    fetchLogs();
+</script>
+{% endblock %}
