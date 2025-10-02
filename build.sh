@@ -43,10 +43,10 @@ cp "${SCRIPT_DIR}/scripts/usb-rom-sorter.sh" /home/scripts/usb-rom-sorter.sh
 chmod +x /home/scripts/usb-rom-sorter.sh
 echo "Script 'usb-rom-sorter.sh' copiado e tornado executável."
 
-cp "${SCRIPT_DIR}/service/usb-rom-sorter.service" /etc/systemd/system/
+cp "${SCRIPT_DIR}/configs/service/usb-rom-sorter.service" /etc/systemd/system/
 echo "Serviço 'usb-rom-sorter.service' instalado."
 
-cp "${SCRIPT_DIR}/rules/99-rom-copy.rules" /etc/udev/rules.d/
+cp "${SCRIPT_DIR}/configs/rules/99-rom-copy.rules" /etc/udev/rules.d/
 echo "Regra udev '99-rom-copy.rules' instalada."
 
 # --- ETAPA 4: Instalação de dependências do Servidor Web ---

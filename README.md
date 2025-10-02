@@ -13,11 +13,11 @@ Passo 1: Conecte a rede
 
 
 
-
-git clone https://github.com/seu-usuario/retropie-custom.git
-cd retropie-custom
-chmod +x build.sh
-./build.sh
+cd ..
+sudo git clone https://github.com/GuilhermeBranddao/retropie-custom.git
+sudo cd retropie-custom
+sudo chmod +x build.sh
+sudo ./build.sh
 
 
 No seu celular (conectado na mesma rede Wi-Fi que o Raspberry Pi), abra o navegador e acesse: http://<IP_DO_RASPBERRY_PI>:5000
