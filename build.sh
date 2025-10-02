@@ -70,7 +70,7 @@ python3 -m venv /home/scripts/flask-server/.venv
 echo "Ambiente virtual criado e Flask instalado."
 
 # Instala o serviço do Flask
-cp "${SCRIPT_DIR}/service/flask-server.service" /etc/systemd/system/
+cp "${SCRIPT_DIR}/configs/service/flask-server.service" /etc/systemd/system/
 echo "Serviço 'flask-server.service' instalado."
 
 # --- ETAPA 6: Recarregando Daemons e Ativando Serviços ---

@@ -10,7 +10,7 @@ ROMS_BASE_PATH = Path(os.path.expanduser("~/RetroPie/roms"))
 LOG_FILE_PATH = Path("logs/usb-sorter.log")
 LOG_LINES_TO_SHOW = 100
 
-def get_last_log_lines(n_lines: int) -> list[str]:
+def get_last_log_lines(n_lines):
     """Lê as N últimas linhas de um arquivo de log de forma eficiente."""
     if not LOG_FILE_PATH.exists():
         return ["Arquivo de log não encontrado."]
@@ -25,7 +25,7 @@ def get_last_log_lines(n_lines: int) -> list[str]:
     except Exception as e:
         return [f"Erro ao ler o arquivo de log: {e}"]
 
-def get_games_list() -> list[dict]:
+def get_games_list():
     """Varre o diretório de ROMs e retorna uma lista de jogos."""
     games = []
     if not ROMS_BASE_PATH.is_dir():
