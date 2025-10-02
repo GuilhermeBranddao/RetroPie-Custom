@@ -6,9 +6,26 @@ app = Flask(__name__)
 
 # --- Configurações ---
 # ATENÇÃO: Altere este caminho para o diretório de ROMs do seu RetroPie
-ROMS_BASE_PATH = Path(os.path.expanduser("~/RetroPie/roms"))
-LOG_FILE_PATH = Path("logs/usb-sorter.log")
-LOG_LINES_TO_SHOW = 100
+ROMS_BASE_PATH = Path(
+    os.getenv("RETROPIE_ROMS_PATH", "/home/pi/RetroPie/roms")
+)
+
+LOGS_DIR = Path(
+    os.getenv("SORTER_LOGS_DIR", "/home/pi/logs")
+)
+
+# Garante que o diretório de log exista antes de tentar escrever nele.
+# Isso torna o script mais robusto e evita erros de 'Arquivo não encontrado'.
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+# O caminho completo do arquivo de log é construído de forma segura.
+LOG_FILE_PATH = LOGS_DIR / "usb-sorter.log"
+
+# --- Configurações da Aplicação ---
+
+# Lê o número de linhas de log a serem exibidas no servidor web.
+# A variável é convertida para inteiro para segurança.
+LOG_LINES_TO_SHOW = int(os.getenv("SORTER_LOG_LINES", 100))
 
 def get_last_log_lines(n_lines):
     """Lê as N últimas linhas de um arquivo de log de forma eficiente."""

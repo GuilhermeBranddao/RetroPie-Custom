@@ -81,6 +81,7 @@ echo "Daemons recarregados."
 
 echo "Habilitando o serviço de cópia de ROMs via USB..."
 systemctl enable usb-rom-sorter.service
+systemctl start usb-rom-sorter.service
 echo "Serviço 'usb-rom-sorter' habilitado."
 
 echo "Ativando e iniciando o serviço do servidor web..."

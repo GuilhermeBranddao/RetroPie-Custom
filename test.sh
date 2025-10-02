@@ -44,16 +44,10 @@ else
     print_status "Serviço 'flask-server.service' está DESABILITADO" "AVISO" "${YELLOW}"
 fi
 
-# Checa o serviço do USB Sorter
-if systemctl is-active --quiet usb-rom-sorter.service; then
-    print_status "Serviço 'usb-rom-sorter.service' está ATIVO" "OK" "${GREEN}"
-else
-    print_status "Serviço 'usb-rom-sorter.service' está INATIVO" "FALHA" "${RED}"
-fi
-
-# Checa o serviço do USB Sorter
+# Checa o serviço do USB Sorter (APENAS SE ESTÁ HABILITADO)
 if systemctl is-enabled --quiet usb-rom-sorter.service; then
     print_status "Serviço 'usb-rom-sorter.service' está HABILITADO" "OK" "${GREEN}"
+    echo "  (Nota: Este serviço fica 'INATIVO' até um USB ser conectado)"
 else
     print_status "Serviço 'usb-rom-sorter.service' está DESABILITADO" "FALHA" "${RED}"
 fi
