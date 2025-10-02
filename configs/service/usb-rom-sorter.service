@@ -1,0 +1,11 @@
+[Unit]
+Description=USB ROM Sorter
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/scripts/usb-rom-sorter.sh
+User=pi
+
+[Install]
+WantedBy=multi-user.target

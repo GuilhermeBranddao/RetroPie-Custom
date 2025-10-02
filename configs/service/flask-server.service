@@ -1,0 +1,22 @@
+[Unit]
+Description=Flask Web Server for RetroPie Management
+After=network.target
+
+[Service]
+# O usuário 'pi' é o dono dos arquivos da aplicação
+User=pi
+Group=pi
+
+# O diretório de trabalho da aplicação
+WorkingDirectory=/home/scripts/flask-server
+
+# Comando para iniciar o servidor, usando o Python do ambiente virtual
+ExecStart=/home/scripts/flask-server/.venv/bin/python app.py
+
+# Reinicia o serviço em caso de falha
+Restart=always
+
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
