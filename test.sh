@@ -45,6 +45,13 @@ else
 fi
 
 # Checa o serviço do USB Sorter
+if systemctl is-active --quiet usb-rom-sorter.service; then
+    print_status "Serviço 'usb-rom-sorter.service' está ATIVO" "OK" "${GREEN}"
+else
+    print_status "Serviço 'usb-rom-sorter.service' está INATIVO" "FALHA" "${RED}"
+fi
+
+# Checa o serviço do USB Sorter
 if systemctl is-enabled --quiet usb-rom-sorter.service; then
     print_status "Serviço 'usb-rom-sorter.service' está HABILITADO" "OK" "${GREEN}"
 else

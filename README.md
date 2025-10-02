@@ -13,9 +13,8 @@ Passo 1: Conecte a rede
 
 
 
-cd ..
 sudo git clone https://github.com/GuilhermeBranddao/retropie-custom.git
-sudo cd retropie-custom
+cd retropie-custom
 sudo chmod +x build.sh
 sudo ./build.sh
 
