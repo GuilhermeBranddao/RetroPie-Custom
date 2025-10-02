@@ -19,6 +19,9 @@ sudo cd retropie-custom
 sudo chmod +x build.sh
 sudo ./build.sh
 
+# Realizar testes
+sudo chmod +x test.sh
+sudo ./test.sh
 
 No seu celular (conectado na mesma rede Wi-Fi que o Raspberry Pi), abra o navegador e acesse: http://<IP_DO_RASPBERRY_PI>:5000
 
